@@ -6,7 +6,7 @@ A design pattern for decoupled modules.
 Disclaimer
 ----------
 I consider myself a noob. Or, I consider myself too much of a noob to write an article about decoupled systems and to "invent" a ?new? design pattern. You can understand this piece of text as a brainstorm, an inspiration, a monolog.
-At first I was thinking of researching more about design patterns and decoupled systems before I put this out into the wild. But knowing, that error is inevidable, it doesn't really matter. If I was trying to reinvent the wheel or my thoughts where complete nonesense, someone will tell. As a noob I can only benefit from that.
+At first I was thinking of researching more about design patterns and decoupled systems before I put this out into the wild. But knowing, that error is inevidable, it doesn't really matter. If I was trying to reinvent the wheel or my thoughts where complete nonesense, someone will tell. As a noob I can only benefit from that. So give me a punch!
 
 The Scenario
 ------------
@@ -35,12 +35,12 @@ instanceB.registerModule(instanceA);
 so now I could access instanceA inside of my instanceB. Something like this:
 function ModuleB() {
 	...
-	modules.instanceA.addCookie(grandmasCookie);
+	registeredModules.instanceA.addCookie(grandmasCookie);
 	...
 }
 
-While in conclusion Option B) is much better than Option A), Module A and Module B still have to know alot about eachother. About  their existenc and how the api looks like each one of them is exposing. 
-That might be fine if you have only few simple modules, but let's say you have a larger project and you really like to have Modules that are small and are only responsible for a very concrete task. That's great, keeps the code readable and your project is well structured. But now we end up having a lot of modules. And now the modules require al kinds of services and resources from each other. You end up registering a ton of modules inside of your modules. 
+While in conclusion Option B) is much better than Option A), Module A and Module B still have to know alot about eachother. About  their existenc and how the api looks like each one of them is exposing. You start loosing focus of the module you're currently writing because you constantly have to think about what other modules in your code do. It'll become a headache keeping all this in mind.
+That might be fine if you have only few simple modules, but let's say you have a larger project and you really like to have Modules that are small, concise and are only responsible for a very concrete task. That's great, keeps the code readable and your project is well structured. But now we end up having a lot of modules. And now the modules require al kinds of services and resources from each other. You end up registering a ton of modules inside of your modules. 
 That wouldn't be much of a problem if we lived in a perfect world. But let's face it, projects grow dynamically and features get added or change. So your code needs to adapt to that. You start refractoring and outsourcing a functionality from one Module into a new Module, merging two into one and so on... Or, what happens a lot with me, I only start understanding the structure of my project once I actually wrote some "brainstormy-messy-modules". So you endup renaming all the registered modules. Very frustrating! Because we should have known it better from the start, because we are all geniuses and refractoring hurts our ego, right? 
 Let's not go down this road of  uneccarry work, stress, self-haterid and self-doubt. supply and demand pattern to the rescue!
 
