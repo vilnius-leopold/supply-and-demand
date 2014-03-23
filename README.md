@@ -1,7 +1,9 @@
 Supply and Demand
 =================
 
-A design pattern for decoupled modules.
+A design pattern for decoupled modules.  
+
+This article doesn't discuss any concrete implementation. It only explains the idea of the pattern.
 
 
 #### Disclaimer
@@ -83,6 +85,16 @@ function Intern() {
 	Crew.supply('someLights', getSomeLights);
 	....
 }
+````
+
+So the central idea for the supply demand pattern is that you have a "Economy" object (Represented by the Crew in this case) assigned to the global namespace (or AMD).
+Switching Jimmy with Timmy is no loger a problem anymore because the Director doesn't communicate directly with Jimmy but threw the economy object. We can even have several people "supply" the resource "someLights" and the Director get the light from the one who comes first. This opens up the posibility to completely swap modules without breaking the code.
+
+#### Taking it futher
+So now we have a Economy global object where modules can supply services and resources to and demand those services and resources from.
+````
+Economy.demand('resourceA');
+Economy.supply('resourceA', resourceFunction );
 ````
 
 
