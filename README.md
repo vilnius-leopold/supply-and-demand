@@ -57,12 +57,20 @@ Let's not go down this road of  uneccarry work, stress, self-haterid and self-do
 
 ### Supply and Demand pattern to the rescue!
 I will start out with an analogy (to the joy of those that hate analogies). Let's say you're a director on a movie set. There are a bunch of people on the set. Actors, camera crew, script supervisor, lighting crew, costum designer... you get the idea. And now you're filming this scene and the darn lights don't frame the scene as you imagend. So you scream:  
+
 > "CUT! CUT! CUT! Somebody get me some damn lights overhere!"  
+
 Little Timmy, a unpayed theater-student intern, that you never shuck hands with in your life, don't even know he exists, brings over this huge lamp post and fixes the issue and you're back roll'n - all perfect.  
 Let's image, you as the director had to work according to Option B) as mentioned earlier. Before the day starts you would first have to get acquainted with all people working on your set. Writing down each and everyones names and responsibilities. When you need the lights you would have to take a look at your list and scream "Jimmy!!! Get me some lights over here!". But no one answers. You scream again and again. Finally your assistent tells you: 
-> "Jimmy got fired yesterday because he stole a Cookie from the production team. They replaced him with a new intern called *Timmy*."  
+
+> "Jimmy got fired yesterday because he stole a Cookie from the production team.
+>  They replaced him with a new intern called *Timmy*."  
+
 Annoyed by all this you jell:  
-> "God damn, then let bloody *Jimmy* do it! Jimmy!!! Get me some lights!".  
+
+> "God damn, then let bloody *Jimmy* do it! 
+>  Jimmy!!! Get me some lights!".  
+
 You see where I'm going with this. This pattern is not very flexible for change. And couples the service or resource of bring the lights to close to Timmy (Instance of the module Intern btw). All you want as the director is your lights and you don't care if Jimmy, Timmy, Johnny or who ever brings it to you. You just want it to be done.  
 
 Let's leave the fortress of your imagination and come back to the real world, the programming world. The example above would look implemented something like this:
