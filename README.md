@@ -108,6 +108,9 @@ So now we have a Economy global object where modules can supply services and res
 Economy.demand('resourceA');
 Economy.supply('resourceA', resourceFunction );
 ```
+- resource price / trade item
+- constraints
+- automated supply / demand chains
 
 
 
