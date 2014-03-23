@@ -51,7 +51,7 @@ function ModuleB() {
 ```
 While in conclusion **Option B** is much better than **Option A**, Module A and Module B still have to know a lot about each other. About  their existence and how the API looks like each one of them is exposing. You start loosing focus of the module you're currently writing because you constantly have to think about what other modules in your code do. It'll become a headache keeping all this in mind.  
 That might be fine if you have only few simple modules, but let's say you have a larger project and you really like to have Modules that are small, concise and are only responsible for a very concrete task. That's great, keeps the code readable and your project is well structured. But now we end up having a lot of modules. And now the modules require all kinds of services and resources from each other. You end up registering a ton of modules inside of your modules.  
-That wouldn't be much of a problem if we lived in a perfect world. But let's face it, projects grow dynamically and features get added or change. So your code needs to adapt to that. You start refactoring and outsourcing a functionality from one Module into a new Module, merging two into one and so on... Or, what happens a lot to me, I only start understanding the structure of my project once I actually wrote some "brainstormy-messy-modules". So you end up renaming all the registered modules. Very frustrating! Because, as we all know, we __should have known better__ from the start, because __we are all geniuses__ and refactoring hurts our ego, because we need to admit we didn't think something through, we didn't foresee something and as programmers we're so proud of our superior logical jelly processor that we keep inside our sculls, right?  
+That wouldn't be much of a problem if we lived in a perfect world. But let's face it, projects grow dynamically and features get added or change. So your code needs to adapt to that. You start refactoring and outsourcing a functionality from one Module into a new Module, merging two into one and so on... Or, what happens a lot to me, I only start understanding the structure of my project once I actually wrote some "brainstorm-like-modules". So you end up renaming all the registered modules. Very frustrating! Because, as we all know, we __should have known better__ from the start, because __we are all geniuses__ and refactoring hurts our ego, because we need to admit we didn't think something through, we didn't foresee something and as programmers we're so proud of our superior logical jelly processor that we keep inside our sculls, right?  
 Let's not go down this road of  unnecessary work, stress, self-haterid and self-doubt.
 
 
@@ -108,12 +108,49 @@ So now we have a Economy global object where modules can supply services and res
 Economy.demand('resourceA');
 Economy.supply('resourceA', resourceFunction );
 ```
+A common scenario is that one Module possesses a resource that require some kind of processing that another Module provides. Let's say our Chef Module wants to acquire diced onions to make a soup, but it only has hole onions. So he demands someone (probably one of his prep-cooks) to dice the onions for him.
+```js
+function Chef() {
+	var onions = ['onion', 'onion', 'onion'];
+
+	function makeSoup() {
+		//                               demandedGood   tradeItems/payment
+		var dicedOnions = Economy.demand('diceOnions', {'onions': onions});
+
+		return 'Soup with ' + dicedOnions;
+	}
+
+}
+
+function PrepCook() {
+
+	function diceOnions( onions ) {
+		return onions.chop();
+	}
+
+	//              offeredGood  tradeItems/payment  productionMethod
+	Economy.supply('diceOnions',     ['onions'],     diceOnions);
+
+}
+```
+With the previous example of the Director and the Intern, the Director got his good `'someLights'` for free. Of course, he's the director so everyone listens to his command else they get fired. But modules can also set a "price", "require good" or "trade item" for their services as shown with the onions.  
+
+Basically you have endless possibilities to implement features for this pattern.  
+And now an actual brainstorm:
+- demand an array of different goods from a variety of suppliers
 - resource price / trade item
-- constraints
-- automated supply / demand chains
+- resource definitions
+- verbose debugging possibilities
+- add constraints/validation to the price/payment (min, max value, datatype, regex match,...)
+- automated self-resolving supply/demand chains / resource routing
+- modules that share only an exclusive sub economy (Economy instances) 
+- resource access permissions
+- module benchmarking / the best supplier module wins the customer / auto optimization of resource routes
+- synchronous  supply / demand
+- asynchronous deliver / order
 
-
+And here a :tomato: because they didn't have onions.
 
 #### About the Maniac who wrote this
-
+I'm trying to make a living as a programmer for nearly 2 years now. Mainly worked as web developer. I'm German, that explains my terrible writing and I currently live and work in Vilnius, Lithuania.
 
