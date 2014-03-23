@@ -41,7 +41,8 @@ var instanceB = new ModuleB();
 
 instanceB.registerModule(instanceA);
 
-so now I could access instanceA inside of my instanceB. Something like this:
+// so now I could access instanceA 
+// inside of my instanceB.
 function ModuleB() {
 	...
 	registeredModules.instanceA.addCookie(grandmasCookie);
