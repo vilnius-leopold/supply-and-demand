@@ -69,8 +69,8 @@ Let's image, you as the director had to work according to Option B) as mentioned
 
 Annoyed by all this you jell:  
 
-> "God damn, then let bloody *Jimmy* do it! 
->  Jimmy!!! Get me some lights!".  
+> "God damn, then let bloody *Timmy* do it! 
+>  Timmy!!! Get me some lights!".  
 
 You see where I'm going with this. This pattern is not very flexible for change. And couples the service or resource of bring the lights to close to Timmy (Instance of the module Intern btw). All you want as the director is your lights and you don't care if Jimmy, Timmy, Johnny or who ever brings it to you. You just want it to be done.  
 
